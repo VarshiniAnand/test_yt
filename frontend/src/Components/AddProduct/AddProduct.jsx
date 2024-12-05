@@ -28,7 +28,7 @@ const AddProduct = () => {
         let formData = new FormData();
         formData.append('product', image);
 
-        await fetch('http://localhost:4000/upload', {
+        await fetch('https://test-yt-z15x.onrender.com/upload', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -40,7 +40,7 @@ const AddProduct = () => {
             product.image = responseData.image_url; //"https://img.freepik.com/premium-vector/cute-happy-smiling-young-girl-desk-with-laptop-cat-hand-drawing-flat-style-illustration-icon-design-isolated-work-teeching-home-concept_92289-1054.jpg?w=1480"
             console.log(product)
 
-            await fetch('http://localhost:4000/addproduct', {
+            await fetch('https://test-yt-z15x.onrender.com/addproduct', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
