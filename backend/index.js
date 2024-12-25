@@ -16,15 +16,11 @@ mongoose.connect("mongodb+srv://varshu1112:Sh%4016032019@cluster0.utdjk.mongodb.
 
 // API creation
 
-app.get("/", (req, res)=>{
+/* app.get("/", (req, res)=>{
     res.send("Express App is Running");
-})
+}) */
 
-const _dirname = path.resolve();
-app.use(express.static(path.join(_dirname, '/frontend/dist')));
-app.get('/addproducts', (_, res)=> {
-    res.sendFile(path.resolve(_dirname, 'frontend', 'dist', 'index.html'))
-})
+
 // Image Storage Engine
 
 const multer_storage = multer.diskStorage({
@@ -273,3 +269,9 @@ app.listen(port, (error)=>{
         console.log("Error: "+error);
     }
 });
+
+const _dirname = path.resolve();
+app.use(express.static(path.join(_dirname, '/frontend/dist')));
+app.get('*', (_, res)=> {
+    res.sendFile(path.resolve(_dirname, 'frontend', 'dist', 'index.html'))
+})
